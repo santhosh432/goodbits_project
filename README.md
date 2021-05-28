@@ -13,6 +13,6 @@ $ python manage.py runserver
 
 ```
 
-### Please find the doc for Rest APi interface ...
+### Please find the doc for Rest API interface ...
 
 [document](https://docs.google.com/document/d/1lJQOw1sQgQQfCx_qWaCdisi4PPS5H1Khfm0VnCPsGmQ/edit?usp=sharing)
