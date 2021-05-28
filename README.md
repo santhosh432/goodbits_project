@@ -9,9 +9,11 @@ Project for Good Bits (Finance)
 
 </p>
 
-Create .env file and keep with below details...
+Create .env file in root dir and keep with below details...
 
 SECRET_KEY='some-random--------jdgshdghsgds'
+
+
 DEBUG=Fasle
 
 ```
