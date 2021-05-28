@@ -33,6 +33,12 @@ class Invoice(models.Model):
                                    )
     paid_status = models.BooleanField(default=False)
 
+    # todo ..
+    url = models.URLField(default=None,
+                          blank=True,
+                          null=True,
+                          )
+
     def __str__(self):
         return '{0}-{1}'.format(self.customer, self.amount)
 

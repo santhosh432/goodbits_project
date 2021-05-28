@@ -4,6 +4,7 @@ from rest_framework import routers, serializers, viewsets
 from .models import Invoice
 from django.contrib.auth.models import Group
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils import timezone
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -25,10 +26,12 @@ class InvoiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Invoice
-        fields = ['project_name',
+        fields = ['id',
+                  'project_name',
                   'amount',
                   'status',
                   'customer',
+                  # 'paid_status',
                   ]
 
     def add_cutomer_group(self, user):
@@ -65,16 +68,28 @@ class InvoiceSerializer(serializers.ModelSerializer):
 
 
 class InvoiceCustomerSerializer(serializers.ModelSerializer):
+    project_name = serializers.CharField(read_only=True)
+    status = serializers.BooleanField(read_only=True)
+    amount = serializers.FloatField(read_only=True)
 
     class Meta:
         model = Invoice
-        fields = ['project_name',
+        fields = ['id',
+                  'project_name',
                   'amount',
                   'status',
                   'paid_status'
                   ]
 
-    # def update(self, instance, validated_data):
+    def update(self, instance, validated_data):
+
+        if instance.paid_status:
+            instance.paid_status = True
+            instance.paid_on = timezone.now()
+            instance.save()
+
+        return instance
+
 
 
 
