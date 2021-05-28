@@ -9,6 +9,11 @@ Project for Good Bits (Finance)
 
 </p>
 
+Create .env file and keep with below details...
+
+SECRET_KEY='some-random--------jdgshdghsgds'
+DEBUG=Fasle
+
 ```
 
 $ git clone https://github.com/santhosh432/goodbits_project.git
